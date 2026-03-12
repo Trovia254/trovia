@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}About Us | TROVIA{% endblock %}
+{% block content %}
+<section class="py-24 bg-gradient-to-b from-teal-50/50 dark:from-teal-950/20 to-white dark:to-slate-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto text-center mb-20">
+      <p class="text-sm font-semibold text-teal-700 dark:text-teal-400 uppercase tracking-widest mb-3">Our story</p>
+      <h1 class="text-5xl font-bold text-gray-900 dark:text-white mb-6">Advancing Technology to the next level<br> and building technology foundations for the world</h1>
+      <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">TROVIA was founded with a singular belief: that African businesses deserve world-class technology solutions built by people who understand the context, the culture, and the opportunity.</p>
+    </div>
+
+    <!-- Founders -->
+    <div class="grid md:grid-cols-2 gap-12 mb-24">
+      <div class="bg-white dark:bg-slate-800 rounded-3xl p-10 shadow-sm border border-gray-100 dark:border-slate-700 hover:shadow-lg transition-shadow">
+        <div class="w-16 h-16 rounded-2xl bg-teal-100 dark:bg-teal-900/40 flex items-center justify-center text-2xl font-bold text-teal-700 dark:text-teal-400 mb-6">T</div>
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-1">Troey</h2>
+        <p class="text-sm text-teal-700 dark:text-teal-400 font-medium mb-4">Co-founder & CEO</p>
+        <p class="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">Troey is the visionary behind the original idea of TROVIA. A strategic thinker who enjoys building products from concept to reality, he focuses on shaping the company’s long-term direction and innovation. With strengths in web UI and product strategy, he is passionate about creating digital solutions that help businesses evolve with technology.
+
+Often found deep in late-night coding sessions, Troey believes the future belongs to builders who think ahead of their time.</p>
+            <br> <h3>Founder Quote:</h3>
+
+<p>“Technology should not just exist. It should solve problems and open new opportunities.”</p>
+      </div>
+      <div class="bg-white dark:bg-slate-800 rounded-3xl p-10 shadow-sm border border-gray-100 dark:border-slate-700 hover:shadow-lg transition-shadow">
+        <div class="w-16 h-16 rounded-2xl bg-orange-100 dark:bg-orange-900/40 flex items-center justify-center text-2xl font-bold text-orange-600 dark:text-orange-400 mb-6">S</div>
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-1">Silvia</h2>
+        <p class="text-sm text-orange-600 dark:text-orange-400 font-medium mb-4">Co-founder & COO</p>
+        <p class="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">Sylvia is a technically driven builder with strong expertise in application development. Ambitious, smart, and deeply curious about technology, she constantly explores new tools and ideas to push TROVIA’s products further.
+
+            Her idealistic outlook and strong technical mindset make her a key force in turning innovative ideas into real digital solutions.</p>
+
+          <br> <h3>Founder Quote:</h3>
+
+<p>“Innovation happens when curiosity meets courage to build something new.”</p>
+      </div>
+    </div>
+
+    <!-- Mission -->
+    <div class="bg-teal-700 dark:bg-teal-800 rounded-3xl p-12 text-white text-center">
+      <h2 class="text-3xl font-bold mb-4">Our Mission</h2>
+      <p class="text-teal-100 text-lg leading-relaxed max-w-2xl mx-auto">To democratise access to world-class technology for businesses across East Africa — empowering growth, enabling innovation, and creating lasting digital legacies.</p>
+    </div>
+
+    <!-- Values -->
+    <div class="mt-20 grid sm:grid-cols-3 gap-8">
+      {% for value in "123" %}
+      <div class="text-center">
+        <div class="w-14 h-14 rounded-2xl bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-400 flex items-center justify-center mx-auto mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            {% if forloop.counter == 1 %}<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+            {% elif forloop.counter == 2 %}<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+            {% else %}<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>{% endif %}
+          </svg>
+        </div>
+        <h3 class="font-bold text-gray-900 dark:text-white mb-2">{% if forloop.counter == 1 %}Integrity{% elif forloop.counter == 2 %}Community{% else %}Innovation{% endif %}</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400">{% if forloop.counter == 1 %}We build trust through transparency, honesty, and delivering on our promises every single time.{% elif forloop.counter == 2 %}We are part of the Nairobi tech community and invest in the people and talent around us.{% else %}We constantly push the boundaries of what's possible with technology in Africa.{% endif %}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

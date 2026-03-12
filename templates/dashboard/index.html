@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Dashboard | Trovia{% endblock %}
+{% block content %}
+<section class="py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-10">
+      <h1 class="text-4xl font-bold text-gray-900 dark:text-white">Welcome back, {{ user.first_name|default:user.email }} 👋</h1>
+      <p class="mt-2 text-gray-500 dark:text-gray-400">Here's your Trovia dashboard overview.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+      <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-gray-100 dark:border-slate-700 shadow-sm">
+        <p class="text-sm text-gray-500 dark:text-gray-400">Account</p>
+        <p class="mt-1 text-xl font-bold text-gray-900 dark:text-white">{{ user.email }}</p>
+      </div>
+      <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-gray-100 dark:border-slate-700 shadow-sm">
+        <p class="text-sm text-gray-500 dark:text-gray-400">Member since</p>
+        <p class="mt-1 text-xl font-bold text-gray-900 dark:text-white">{{ user.date_joined|date:"M Y" }}</p>
+      </div>
+      <div class="bg-teal-700 rounded-2xl p-6 shadow-sm col-span-1">
+        <p class="text-sm text-teal-200">Status</p>
+        <p class="mt-1 text-xl font-bold text-white">{% if user.is_staff %}Admin{% else %}Active{% endif %}</p>
+      </div>
+      <div class="bg-orange-500 rounded-2xl p-6 shadow-sm">
+        <p class="text-sm text-orange-100">Location</p>
+        <p class="mt-1 text-xl font-bold text-white">🇰🇪 Nairobi</p>
+      </div>
+    </div>
+
+    <div class="bg-white dark:bg-slate-800 rounded-2xl p-8 border border-gray-100 dark:border-slate-700 shadow-sm">
+      <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Quick actions</h2>
+      <div class="flex flex-wrap gap-4">
+        <a href="{% url 'core:services' %}" class="px-5 py-2.5 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-400 rounded-full text-sm font-medium hover:bg-teal-100 dark:hover:bg-teal-900/50 transition-colors">Browse services</a>
+        <a href="{% url 'core:contact' %}" class="px-5 py-2.5 bg-orange-50 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 rounded-full text-sm font-medium hover:bg-orange-100 dark:hover:bg-orange-900/50 transition-colors">Contact us</a>
+        <a href="{% url 'blog:list' %}" class="px-5 py-2.5 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors">Read blog</a>
+        {% if user.is_staff %}<a href="{% url 'admin:index' %}" class="px-5 py-2.5 bg-gray-900 dark:bg-slate-600 text-white rounded-full text-sm font-medium hover:bg-gray-700 transition-colors">Admin panel</a>{% endif %}
+        <a href="{% url 'account_logout' %}" class="px-5 py-2.5 border border-gray-200 dark:border-slate-600 text-gray-500 dark:text-gray-400 rounded-full text-sm font-medium hover:border-red-300 hover:text-red-500 transition-colors">Sign out</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
