@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: trovia
+    runtime: python
+    buildCommand: pip install -r requirements/base.txt && python manage.py collectstatic --noinput --settings=trovia.settings.prod
+    startCommand: python manage.py migrate --settings=trovia.settings.prod && gunicorn trovia.wsgi:application --bind 0.0.0.0:$PORT --workers 2
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: trovia.settings.prod
+      - key: DEBUG
+        value: "False"
+      - key: ALLOWED_HOSTS
+        value: trovia.onrender.com
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: trovia-db
+          property: connectionString
+
+databases:
+  - name: trovia-db
+    databaseName: trovia
+    plan: free
